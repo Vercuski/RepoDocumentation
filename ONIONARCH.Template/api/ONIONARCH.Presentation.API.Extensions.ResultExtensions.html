@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ResultExtensions | ONIONARCH.Template </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ResultExtensions | ONIONARCH.Template ">
+      
+      <meta name="description" content="Maps Application-layer  values to MVC s so controllers share one consistent status-code mapping.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Vercuski/ONIONARCH.Template/new/main/apiSpec/new?filename=ONIONARCH_Presentation_API_Extensions_ResultExtensions.md&amp;value=---%0Auid%3A%20ONIONARCH.Presentation.API.Extensions.ResultExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ONIONARCH.Template">
+            ONIONARCH.Template
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ONIONARCH.Presentation.API.Extensions.ResultExtensions">
+
+
+
+  <h1 id="ONIONARCH_Presentation_API_Extensions_ResultExtensions" data-uid="ONIONARCH.Presentation.API.Extensions.ResultExtensions" class="text-break">
+Class ResultExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/Vercuski/ONIONARCH.Template/blob/main/source/ONIONARCH.Presentation.API/Extensions/ResultExtensions.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ONIONARCH.html">ONIONARCH</a>.<a class="xref" href="ONIONARCH.Presentation.html">Presentation</a>.<a class="xref" href="ONIONARCH.Presentation.API.html">API</a>.<a class="xref" href="ONIONARCH.Presentation.API.Extensions.html">Extensions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ONIONARCH.Presentation.API.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Maps Application-layer <a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html">Result&lt;T&gt;</a> values to MVC <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>s so
+controllers share one consistent status-code mapping.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ResultExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ResultExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="ONIONARCH_Presentation_API_Extensions_ResultExtensions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Failure mapping: <a class="xref" href="ONIONARCH.Application.Abstractions.ResultErrorType.html#ONIONARCH_Application_Abstractions_ResultErrorType_NotFound">NotFound</a> → 404,
+<a class="xref" href="ONIONARCH.Application.Abstractions.ResultErrorType.html#ONIONARCH_Application_Abstractions_ResultErrorType_Validation">Validation</a> → 400, <a class="xref" href="ONIONARCH.Application.Abstractions.ResultErrorType.html#ONIONARCH_Application_Abstractions_ResultErrorType_Conflict">Conflict</a> → 409,
+anything else → 500 problem details.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ONIONARCH_Presentation_API_Extensions_ResultExtensions_ToActionResult_" data-uid="ONIONARCH.Presentation.API.Extensions.ResultExtensions.ToActionResult*"></a>
+
+  <h3 id="ONIONARCH_Presentation_API_Extensions_ResultExtensions_ToActionResult__1_ONIONARCH_Application_Abstractions_Result___0__Microsoft_AspNetCore_Mvc_ControllerBase_" data-uid="ONIONARCH.Presentation.API.Extensions.ResultExtensions.ToActionResult``1(ONIONARCH.Application.Abstractions.Result{``0},Microsoft.AspNetCore.Mvc.ControllerBase)">
+  ToActionResult&lt;T&gt;(Result&lt;T&gt;, ControllerBase)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Vercuski/ONIONARCH.Template/blob/main/source/ONIONARCH.Presentation.API/Extensions/ResultExtensions.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps a <a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html">Result&lt;T&gt;</a> directly to an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>.
+On success, returns 200 OK with <code>result.Value</code> as-is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IActionResult ToActionResult&lt;T&gt;(this Result&lt;T&gt; result, ControllerBase controller)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html">Result</a>&lt;T&gt;</dt>
+    <dd><p>The handler result to map.</p>
+</dd>
+    <dt><code>controller</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controllerbase">ControllerBase</a></dt>
+    <dd><p>The controller used to create the response.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a></dt>
+    <dd><p>200 OK on success; otherwise the error response for <a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html#ONIONARCH_Application_Abstractions_Result_1_ErrorType">ErrorType</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the success value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="ONIONARCH_Presentation_API_Extensions_ResultExtensions_ToActionResult_" data-uid="ONIONARCH.Presentation.API.Extensions.ResultExtensions.ToActionResult*"></a>
+
+  <h3 id="ONIONARCH_Presentation_API_Extensions_ResultExtensions_ToActionResult__2_ONIONARCH_Application_Abstractions_Result___0__Microsoft_AspNetCore_Mvc_ControllerBase_System_Func___0___1__" data-uid="ONIONARCH.Presentation.API.Extensions.ResultExtensions.ToActionResult``2(ONIONARCH.Application.Abstractions.Result{``0},Microsoft.AspNetCore.Mvc.ControllerBase,System.Func{``0,``1})">
+  ToActionResult&lt;T, TResponse&gt;(Result&lt;T&gt;, ControllerBase, Func&lt;T, TResponse&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Vercuski/ONIONARCH.Template/blob/main/source/ONIONARCH.Presentation.API/Extensions/ResultExtensions.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maps a <a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html">Result&lt;T&gt;</a> to an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a>, projecting the
+success value through <code class="paramref">onSuccess</code> (e.g. entity -&gt; DTO) before
+returning it via 200 OK. Mirrors the original controller behavior of treating a
+success with a null value as not-found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IActionResult ToActionResult&lt;T, TResponse&gt;(this Result&lt;T&gt; result, ControllerBase controller, Func&lt;T, TResponse&gt; onSuccess)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>result</code> <a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html">Result</a>&lt;T&gt;</dt>
+    <dd><p>The handler result to map.</p>
+</dd>
+    <dt><code>controller</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controllerbase">ControllerBase</a></dt>
+    <dd><p>The controller used to create the response.</p>
+</dd>
+    <dt><code>onSuccess</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TResponse&gt;</dt>
+    <dd><p>Projects the success value into the response body.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult">IActionResult</a></dt>
+    <dd><p>200 OK with the projected value on success; otherwise the mapped error response.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the success value.</p>
+</dd>
+    <dt><code>TResponse</code></dt>
+    <dd><p>The type returned to the caller.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ONIONARCH_Presentation_API_Extensions_ResultExtensions_ToActionResult__2_ONIONARCH_Application_Abstractions_Result___0__Microsoft_AspNetCore_Mvc_ControllerBase_System_Func___0___1___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A success with a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value falls through to the error mapping; because
+<a class="xref" href="ONIONARCH.Application.Abstractions.Result-1.html#ONIONARCH_Application_Abstractions_Result_1_ErrorType">ErrorType</a> defaults to <a class="xref" href="ONIONARCH.Application.Abstractions.ResultErrorType.html#ONIONARCH_Application_Abstractions_ResultErrorType_NotFound">NotFound</a>, that yields 404.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Vercuski/ONIONARCH.Template/blob/main/source/ONIONARCH.Presentation.API/Extensions/ResultExtensions.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Generated by DocFX from the XML documentation comments in <a href="https://github.com/Vercuski/ONIONARCH.Template">ONIONARCH.Template</a>.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
