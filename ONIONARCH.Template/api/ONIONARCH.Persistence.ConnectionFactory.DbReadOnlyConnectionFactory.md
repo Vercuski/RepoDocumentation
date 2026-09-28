@@ -18,7 +18,7 @@ public sealed class DbReadOnlyConnectionFactory : IDbReadOnlyConnectionFactory
 
 #### Implements
 
-IDbReadOnlyConnectionFactory
+[IDbReadOnlyConnectionFactory](ONIONARCH.Application.Abstractions.ConnectionFactory.IDbReadOnlyConnectionFactory.md)
 
 #### Inherited Members
 

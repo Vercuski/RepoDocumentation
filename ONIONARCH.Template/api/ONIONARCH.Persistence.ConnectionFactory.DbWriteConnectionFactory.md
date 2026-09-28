@@ -18,7 +18,7 @@ public sealed class DbWriteConnectionFactory : IDbWriteConnectionFactory
 
 #### Implements
 
-IDbWriteConnectionFactory
+[IDbWriteConnectionFactory](ONIONARCH.Application.Abstractions.ConnectionFactory.IDbWriteConnectionFactory.md)
 
 #### Inherited Members
 

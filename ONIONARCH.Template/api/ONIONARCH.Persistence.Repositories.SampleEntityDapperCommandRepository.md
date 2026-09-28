@@ -17,7 +17,7 @@ public sealed class SampleEntityDapperCommandRepository : ISampleEntityDapperCom
 
 #### Implements
 
-ISampleEntityDapperCommandRepository
+[ISampleEntityDapperCommandRepository](ONIONARCH.Application.Abstractions.Repositories.ISampleEntityDapperCommandRepository.md)
 
 #### Inherited Members
 
@@ -41,7 +41,7 @@ public SampleEntityDapperCommandRepository(IDbWriteConnectionFactory connectionF
 
 #### Parameters
 
-`connectionFactory` IDbWriteConnectionFactory
+`connectionFactory` [IDbWriteConnectionFactory](ONIONARCH.Application.Abstractions.ConnectionFactory.IDbWriteConnectionFactory.md)
 
 Creates connections to the command database.
 

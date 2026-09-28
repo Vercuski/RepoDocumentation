@@ -25,7 +25,7 @@ public sealed class QueryDbContext : BaseDbContext<QueryDbContext>, IInfrastruct
 [IResettableService](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.infrastructure.iresettableservice), 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
 [IAsyncDisposable](https://learn.microsoft.com/dotnet/api/system.iasyncdisposable), 
-IQueryDbContext
+[IQueryDbContext](ONIONARCH.Application.Abstractions.Context.IQueryDbContext.md)
 
 #### Inherited Members
 

@@ -2,24 +2,20 @@
 
 ### Classes
 
- [MySQLDatabaseProvider](ONIONARCH.Persistence.Providers.MySQLDatabaseProvider.md)
+ [DatabaseProviderRegistry](ONIONARCH.Persistence.Providers.DatabaseProviderRegistry.md)
 
-[IDatabaseProvider](ONIONARCH.Persistence.Providers.IDatabaseProvider.md) for MySQL. Uses the MySql.EntityFrameworkCore provider for
-EF Core and MySqlConnector for Dapper connections.
-
- [PostgreSqlDatabaseProvider](ONIONARCH.Persistence.Providers.PostgreSqlDatabaseProvider.md)
-
-[IDatabaseProvider](ONIONARCH.Persistence.Providers.IDatabaseProvider.md) for PostgreSQL, using Npgsql for both EF Core and Dapper connections.
-
- [SqlServerDatabaseProvider](ONIONARCH.Persistence.Providers.SqlServerDatabaseProvider.md)
-
-[IDatabaseProvider](ONIONARCH.Persistence.Providers.IDatabaseProvider.md) for Microsoft SQL Server, using Microsoft.Data.SqlClient for
-both EF Core and Dapper connections.
+Composition-root registry of the database providers a host has opted into. Each provider project
+contributes an extension method (<code>AddSqlServer</code>, <code>AddPostgreSql</code>, <code>AddMySql</code>) that
+adds its provider here, so the core Persistence project resolves providers by configured platform
+key without a compile-time dependency on any of them.
 
 ### Interfaces
 
  [IDatabaseProvider](ONIONARCH.Persistence.Providers.IDatabaseProvider.md)
 
-Abstracts a database platform (SQL Server, PostgreSQL, MySQL) so the EF Core and Dapper paths
-can be pointed at any supported platform through configuration alone.
+Abstracts a database platform so the EF Core and Dapper paths can be pointed at any supported
+platform through configuration alone. Implemented by the provider-specific projects
+(ONIONARCH.Persistence.SqlServer, .PostgreSql, .MySql); this core project owns the contract but
+never references a concrete provider. Hosts opt providers in through
+[DatabaseProviderRegistry](ONIONARCH.Persistence.Providers.DatabaseProviderRegistry.md).
 

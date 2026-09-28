@@ -27,8 +27,8 @@ public sealed class CommandDbContext : BaseDbContext<CommandDbContext>, IInfrast
 [IResettableService](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.infrastructure.iresettableservice), 
 [IDisposable](https://learn.microsoft.com/dotnet/api/system.idisposable), 
 [IAsyncDisposable](https://learn.microsoft.com/dotnet/api/system.iasyncdisposable), 
-ICommandDbContext, 
-IUnitOfWork
+[ICommandDbContext](ONIONARCH.Application.Abstractions.Context.ICommandDbContext.md), 
+[IUnitOfWork](ONIONARCH.Application.Abstractions.IUnitOfWork.md)
 
 #### Inherited Members
 
@@ -141,7 +141,7 @@ A token to cancel the operation.
 
 #### Returns
 
- [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<IUnitOfWorkTransaction\>
+ [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[IUnitOfWorkTransaction](ONIONARCH.Application.Abstractions.IUnitOfWorkTransaction.md)\>
 
 A transaction that must be committed or rolled back explicitly and then disposed.
 

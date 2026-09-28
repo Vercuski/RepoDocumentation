@@ -17,7 +17,7 @@ public sealed class SampleEntityDapperQueryRepository : ISampleEntityDapperQuery
 
 #### Implements
 
-ISampleEntityDapperQueryRepository
+[ISampleEntityDapperQueryRepository](ONIONARCH.Application.Abstractions.Repositories.ISampleEntityDapperQueryRepository.md)
 
 #### Inherited Members
 
@@ -41,7 +41,7 @@ public SampleEntityDapperQueryRepository(IDbReadOnlyConnectionFactory connection
 
 #### Parameters
 
-`connectionFactory` IDbReadOnlyConnectionFactory
+`connectionFactory` [IDbReadOnlyConnectionFactory](ONIONARCH.Application.Abstractions.ConnectionFactory.IDbReadOnlyConnectionFactory.md)
 
 Creates connections to the query database.
 

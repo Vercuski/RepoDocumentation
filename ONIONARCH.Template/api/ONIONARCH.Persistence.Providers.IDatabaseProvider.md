@@ -3,12 +3,31 @@
 Namespace: [ONIONARCH.Persistence.Providers](ONIONARCH.Persistence.Providers.md)  
 Assembly: ONIONARCH.Persistence.dll  
 
-Abstracts a database platform (SQL Server, PostgreSQL, MySQL) so the EF Core and Dapper paths
-can be pointed at any supported platform through configuration alone.
+Abstracts a database platform so the EF Core and Dapper paths can be pointed at any supported
+platform through configuration alone. Implemented by the provider-specific projects
+(ONIONARCH.Persistence.SqlServer, .PostgreSql, .MySql); this core project owns the contract but
+never references a concrete provider. Hosts opt providers in through
+[DatabaseProviderRegistry](ONIONARCH.Persistence.Providers.DatabaseProviderRegistry.md).
 
 ```csharp
 public interface IDatabaseProvider
 ```
+
+## Properties
+
+### <a id="ONIONARCH_Persistence_Providers_IDatabaseProvider_Platform"></a> Platform
+
+The platform key matched, case-insensitively, against the <code>QueryDbPlatform</code> and
+<code>CommandDbPlatform</code> values of the <code>DatabasePlatform</code> configuration section
+(e.g. <code>MSSQL</code>, <code>PostgreSQL</code>, <code>MySQL</code>).
+
+```csharp
+string Platform { get; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 
 ## Methods
 
