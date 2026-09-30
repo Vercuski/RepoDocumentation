@@ -29,6 +29,22 @@ string Platform { get; }
 
  [string](https://learn.microsoft.com/dotnet/api/system.string)
 
+### <a id="ONIONARCH_Persistence_Providers_IDatabaseProvider_SupportsBulkOperations"></a> SupportsBulkOperations
+
+Gets a value indicating whether this platform supports the entity-list bulk operations of
+<code>IBulkCommandDbContext</code> (insert, update, delete, upsert). They are implemented with
+EFCore.BulkExtensions, which needs a platform adapter package; a provider returns
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> only when its project references that adapter. Set-based
+<code>UpdateWhereAsync</code>/<code>DeleteWhereAsync</code> use EF Core itself and work regardless.
+
+```csharp
+bool SupportsBulkOperations { get; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
 ## Methods
 
 ### <a id="ONIONARCH_Persistence_Providers_IDatabaseProvider_ConfigureEfCore_Microsoft_EntityFrameworkCore_DbContextOptionsBuilder_System_String_"></a> ConfigureEfCore\(DbContextOptionsBuilder, string\)

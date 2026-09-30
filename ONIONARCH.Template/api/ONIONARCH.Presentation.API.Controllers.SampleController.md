@@ -232,6 +232,107 @@ references Persistence (enforced by the Presentation architecture tests).
 
 ## Methods
 
+### <a id="ONIONARCH_Presentation_API_Controllers_SampleController_BulkCreateEFCore_System_Collections_Generic_IReadOnlyList_ONIONARCH_Application_Contracts_Dtos_CreateSampleRequestDto__"></a> BulkCreateEFCore\(IReadOnlyList<CreateSampleRequestDto\>\)
+
+Creates many sample entities in one bulk insert via the EF Core bulk port.
+
+```csharp
+[HttpPost("EFCore/Bulk")]
+public Task<IActionResult> BulkCreateEFCore(IReadOnlyList<CreateSampleRequestDto> dtos)
+```
+
+#### Parameters
+
+`dtos` [IReadOnlyList](https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist\-1)<CreateSampleRequestDto\>
+
+The values for the new entities.
+
+#### Returns
+
+ [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[IActionResult](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult)\>
+
+200 with the generated keys in request order, or 400 if the list is empty.
+
+#### Remarks
+
+<code>POST api/Sample/EFCore/Bulk</code>. Not available when the command database is MySQL (see README).
+
+### <a id="ONIONARCH_Presentation_API_Controllers_SampleController_BulkDeleteEFCore_System_Int32___"></a> BulkDeleteEFCore\(int\[\]\)
+
+Deletes many sample entities with one set-based statement via the EF Core bulk port.
+
+```csharp
+[HttpDelete("EFCore/Bulk")]
+public Task<IActionResult> BulkDeleteEFCore(int[] sampleIds)
+```
+
+#### Parameters
+
+`sampleIds` [int](https://learn.microsoft.com/dotnet/api/system.int32)\[\]
+
+The keys of the entities to delete (bound from the query string).
+
+#### Returns
+
+ [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[IActionResult](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult)\>
+
+200 with the number of rows deleted, or 400 if no keys were supplied.
+
+#### Remarks
+
+<code>DELETE api/Sample/EFCore/Bulk?sampleIds=1&amp;sampleIds=2</code>
+
+### <a id="ONIONARCH_Presentation_API_Controllers_SampleController_BulkUpdateEFCore_ONIONARCH_Application_Contracts_Dtos_BulkUpdateSampleRequestDto_"></a> BulkUpdateEFCore\(BulkUpdateSampleRequestDto\)
+
+Updates many sample entities with one set-based statement via the EF Core bulk port.
+
+```csharp
+[HttpPatch("EFCore/Bulk")]
+public Task<IActionResult> BulkUpdateEFCore(BulkUpdateSampleRequestDto dto)
+```
+
+#### Parameters
+
+`dto` BulkUpdateSampleRequestDto
+
+The keys to update and the changes to apply.
+
+#### Returns
+
+ [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[IActionResult](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult)\>
+
+200 with the number of rows updated, or 400 if no keys were supplied.
+
+#### Remarks
+
+<code>PATCH api/Sample/EFCore/Bulk</code>
+
+### <a id="ONIONARCH_Presentation_API_Controllers_SampleController_BulkUpsertEFCore_System_Collections_Generic_IReadOnlyList_ONIONARCH_Application_Contracts_Dtos_UpdateSampleRequestDto__"></a> BulkUpsertEFCore\(IReadOnlyList<UpdateSampleRequestDto\>\)
+
+Inserts or updates many sample entities by key in one bulk operation via the EF Core bulk port.
+An item with <code>dtoSampleId</code> 0 is inserted; any other key updates the matching row.
+
+```csharp
+[HttpPut("EFCore/Bulk")]
+public Task<IActionResult> BulkUpsertEFCore(IReadOnlyList<UpdateSampleRequestDto> dtos)
+```
+
+#### Parameters
+
+`dtos` [IReadOnlyList](https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist\-1)<UpdateSampleRequestDto\>
+
+The keys and values to write.
+
+#### Returns
+
+ [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[IActionResult](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult)\>
+
+200 with the number of entities written, or 400 if the list is empty.
+
+#### Remarks
+
+<code>PUT api/Sample/EFCore/Bulk</code>. Not available when the command database is MySQL (see README).
+
 ### <a id="ONIONARCH_Presentation_API_Controllers_SampleController_CreateDapper_ONIONARCH_Application_Contracts_Dtos_CreateSampleRequestDto_"></a> CreateDapper\(CreateSampleRequestDto\)
 
 Creates a sample entity via Dapper.

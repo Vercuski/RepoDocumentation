@@ -2,6 +2,10 @@
 
 ### Classes
 
+ [BulkUpdateSampleRequestDto](ONIONARCH.Application.Contracts.Dtos.BulkUpdateSampleRequestDto.md)
+
+Inbound payload for a set-based update of many sample entities.
+
  [CreateSampleRequestDto](ONIONARCH.Application.Contracts.Dtos.CreateSampleRequestDto.md)
 
 Inbound payload for creating a sample entity.
