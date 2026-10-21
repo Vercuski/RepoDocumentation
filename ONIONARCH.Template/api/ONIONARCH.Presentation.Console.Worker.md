@@ -38,13 +38,13 @@ public class Worker : BackgroundService, IHostedService, IDisposable
 
 ## Constructors
 
-### <a id="ONIONARCH_Presentation_Console_Worker__ctor_Microsoft_Extensions_Logging_ILogger_ONIONARCH_Presentation_Console_Worker__ONIONARCH_Infrastructure_Correlation_CorrelationIdAccessor_"></a> Worker\(ILogger<Worker\>, CorrelationIdAccessor\)
+### <a id="ONIONARCH_Presentation_Console_Worker__ctor_Microsoft_Extensions_Logging_ILogger_ONIONARCH_Presentation_Console_Worker__"></a> Worker\(ILogger<Worker\>\)
 
 Sample background worker for the console host. Once per second it starts a new unit of work
 with its own correlation ID and logs a heartbeat inside a correlation ID logging scope.
 
 ```csharp
-public Worker(ILogger<Worker> logger, CorrelationIdAccessor correlationIdAccessor)
+public Worker(ILogger<Worker> logger)
 ```
 
 #### Parameters
@@ -52,10 +52,6 @@ public Worker(ILogger<Worker> logger, CorrelationIdAccessor correlationIdAccesso
 `logger` [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger\-1)<[Worker](ONIONARCH.Presentation.Console.Worker.md)\>
 
 The logger used for heartbeat entries.
-
-`correlationIdAccessor` CorrelationIdAccessor
-
-The ambient correlation ID store.
 
 ## Methods
 

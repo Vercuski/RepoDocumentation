@@ -1,7 +1,7 @@
 # <a id="Program"></a> Class Program
 
 Namespace:   
-Assembly: ONIONARCH.Presentation.Console.dll, ONIONARCH.Presentation.API.dll, ONIONARCH.Presentation.Web.dll  
+Assembly: ONIONARCH.Presentation.Web.dll, ONIONARCH.Presentation.API.dll, ONIONARCH.Presentation.Console.dll  
 
 Auto-generated public partial Program class for top-level statement apps.
 

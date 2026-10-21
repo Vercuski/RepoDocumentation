@@ -39,7 +39,7 @@ each other's IDs.
 Gets the correlation ID for the current async flow, or [Empty](https://learn.microsoft.com/dotnet/api/system.string.empty) if none has been set.
 
 ```csharp
-public string CorrelationId { get; }
+public static string CorrelationId { get; }
 ```
 
 #### Property Value
@@ -53,7 +53,7 @@ public string CorrelationId { get; }
 Sets the correlation ID for the current async flow and every flow it subsequently spawns.
 
 ```csharp
-public void Set(string correlationId)
+public static void Set(string correlationId)
 ```
 
 #### Parameters
