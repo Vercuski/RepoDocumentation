@@ -71,13 +71,13 @@ public const string HeaderName = "X-Correlation-Id"
 
 ## Methods
 
-### <a id="ONIONARCH_Infrastructure_Correlation_CorrelationIdMiddleware_InvokeAsync_Microsoft_AspNetCore_Http_HttpContext_ONIONARCH_Infrastructure_Correlation_CorrelationIdAccessor_Microsoft_Extensions_Logging_ILogger_ONIONARCH_Infrastructure_Correlation_CorrelationIdMiddleware__"></a> InvokeAsync\(HttpContext, CorrelationIdAccessor, ILogger<CorrelationIdMiddleware\>\)
+### <a id="ONIONARCH_Infrastructure_Correlation_CorrelationIdMiddleware_InvokeAsync_Microsoft_AspNetCore_Http_HttpContext_Microsoft_Extensions_Logging_ILogger_ONIONARCH_Infrastructure_Correlation_CorrelationIdMiddleware__"></a> InvokeAsync\(HttpContext, ILogger<CorrelationIdMiddleware\>\)
 
 Resolves the correlation ID for the current request and invokes the rest of the pipeline
 inside a logging scope that carries it.
 
 ```csharp
-public Task InvokeAsync(HttpContext context, CorrelationIdAccessor accessor, ILogger<CorrelationIdMiddleware> logger)
+public Task InvokeAsync(HttpContext context, ILogger<CorrelationIdMiddleware> logger)
 ```
 
 #### Parameters
@@ -85,10 +85,6 @@ public Task InvokeAsync(HttpContext context, CorrelationIdAccessor accessor, ILo
 `context` [HttpContext](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext)
 
 The current HTTP context.
-
-`accessor` [CorrelationIdAccessor](ONIONARCH.Infrastructure.Correlation.CorrelationIdAccessor.md)
-
-The ambient correlation ID store (method-injected per request).
 
 `logger` [ILogger](https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger\-1)<[CorrelationIdMiddleware](ONIONARCH.Infrastructure.Correlation.CorrelationIdMiddleware.md)\>
 
