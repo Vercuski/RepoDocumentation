@@ -3,7 +3,8 @@
 Namespace: [Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.md)  
 Assembly: Vertical\-Slice\_Clean\-Architecture.Presentation.API.dll  
 
-FluentValidation rules for [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md), applied by <code>WithValidation&lt;Command&gt;()</code> before the handler runs.
+FluentValidation rules for [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md), applied by <code>WithValidation&lt;Command&gt;()</code>
+before the handler runs. The length limits are the entity's, so they match the database mapping.
 
 ```csharp
 public sealed class PostSample.Validator : AbstractValidator<PostSample.Command>, IValidator<PostSample.Command>, IValidator, IEnumerable<IValidationRule>, IEnumerable
@@ -56,7 +57,9 @@ AbstractValidator<PostSample.Command\>.RuleLevelCascadeMode,
 
 ### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Validator__ctor"></a> Validator\(\)
 
-Defines the rules: [SampleEntity.Id](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md#Vertical_Slice_Clean_Architecture_Domain_Entities_SampleEntity_Id) must not be [Empty](https://learn.microsoft.com/dotnet/api/system.guid.empty).
+Defines the rules: a [PostSample.Command.Name](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md#Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_Name) of at most [SampleEntity.NameMaxLength](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md#Vertical_Slice_Clean_Architecture_Domain_Entities_SampleEntity_NameMaxLength)
+characters, and a valid [PostSample.Command.Email](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md#Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_Email) of at most [SampleEntity.EmailMaxLength](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md#Vertical_Slice_Clean_Architecture_Domain_Entities_SampleEntity_EmailMaxLength) characters.
+Each property stops at its first failure, so an empty email is reported once, as empty.
 
 ```csharp
 public Validator()

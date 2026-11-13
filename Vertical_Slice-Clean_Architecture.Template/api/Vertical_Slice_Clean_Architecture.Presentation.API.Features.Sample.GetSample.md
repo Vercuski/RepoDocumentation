@@ -3,7 +3,7 @@
 Namespace: [Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.md)  
 Assembly: Vertical\-Slice\_Clean\-Architecture.Presentation.API.dll  
 
-Vertical slice for <code>GET /Sample/{Id}</code>: returns a single [SampleEntity](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md) by its identifier.
+Vertical slice for <code>GET /Sample/{Id}</code>: returns a single sample by its identifier.
 
 ```csharp
 public static class GetSample
@@ -26,5 +26,7 @@ public static class GetSample
 
 ## Remarks
 
-The slice's request, response, handler and endpoint are nested in this one class.
+The slice's request, response, handler and endpoint are nested in this one class. It reads
+from the query (read) side of the database and projects straight into [GetSample.Response](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.GetSample.Response.md),
+so no [SampleEntity](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md) is materialized and the domain type never reaches the HTTP contract.
 

@@ -3,7 +3,7 @@
 Namespace: [Vertical\_Slice\_Clean\_Architecture.Domain.Abstractions](Vertical\_Slice\_Clean\_Architecture.Domain.Abstractions.md)  
 Assembly: Vertical\-Slice\_Clean\-Architecture.Domain.dll  
 
-Optional abstract base class for domain entities that are modelled as classes.
+Abstract base class for domain entities: every entity has a [Entity.Id](Vertical_Slice_Clean_Architecture.Domain.Abstractions.Entity.md#Vertical_Slice_Clean_Architecture_Domain_Abstractions_Entity_Id) that identifies it.
 
 ```csharp
 [ExcludeFromCodeCoverage]
@@ -14,6 +14,10 @@ public abstract class Entity : IEntity
 
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 [Entity](Vertical\_Slice\_Clean\_Architecture.Domain.Abstractions.Entity.md)
+
+#### Derived
+
+[SampleEntity](Vertical\_Slice\_Clean\_Architecture.Domain.Entities.SampleEntity.md)
 
 #### Implements
 
@@ -31,7 +35,26 @@ public abstract class Entity : IEntity
 
 ## Remarks
 
-It carries no state or behavior yet. It exists as a single place to add members that every
-class-based entity should share (for example an identifier, audit fields or domain events).
-Entities written as records, such as <code>SampleEntity</code>, implement [IEntity](Vertical_Slice_Clean_Architecture.Domain.Abstractions.IEntity.md) directly instead.
+<p>
+Add members here that every entity should share, for example audit fields or domain events.
+</p>
+<p>
+[Entity.Id](Vertical_Slice_Clean_Architecture.Domain.Abstractions.Entity.md#Vertical_Slice_Clean_Architecture_Domain_Abstractions_Entity_Id) has a protected setter, so only the entity itself (typically in a factory
+method) assigns it. EF Core and Dapper can still set it when they load a row, because both
+write to non-public setters.
+</p>
+
+## Properties
+
+### <a id="Vertical_Slice_Clean_Architecture_Domain_Abstractions_Entity_Id"></a> Id
+
+Gets the unique identifier of the entity.
+
+```csharp
+public Guid Id { get; protected set; }
+```
+
+#### Property Value
+
+ [Guid](https://learn.microsoft.com/dotnet/api/system.guid)
 

@@ -2,6 +2,12 @@
 
 ### Classes
 
+ [ProblemDetailsFilter](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Common.ProblemDetailsFilter.md)
+
+Endpoint filter, applied to every slice by [SliceRegistration.MapSlices](Vertical_Slice_Clean_Architecture.Presentation.API.Common.SliceRegistration.md#Vertical_Slice_Clean_Architecture_Presentation_API_Common_SliceRegistration_MapSlices_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_), that runs the
+application's [CustomizeProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.problemdetailsoptions.customizeproblemdetails) on problem bodies a slice
+returns itself (for example [Problems.Conflict](Vertical_Slice_Clean_Architecture.Presentation.API.Common.Problems.md#Vertical_Slice_Clean_Architecture_Presentation_API_Common_Problems_Conflict_System_String_System_String_)).
+
  [Problems](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Common.Problems.md)
 
 Factory methods for typed RFC 9457 [ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails) error responses, so every slice reports errors in the same shape.

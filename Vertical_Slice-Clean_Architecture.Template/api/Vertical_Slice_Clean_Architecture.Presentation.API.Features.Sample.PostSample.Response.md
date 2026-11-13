@@ -41,13 +41,13 @@ public Response(Guid Id)
 
 `Id` [Guid](https://learn.microsoft.com/dotnet/api/system.guid)
 
-The identifier of the sample.
+The identifier the server assigned to the new sample.
 
 ## Properties
 
 ### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Response_Id"></a> Id
 
-The identifier of the sample.
+The identifier the server assigned to the new sample.
 
 ```csharp
 public Guid Id { get; init; }

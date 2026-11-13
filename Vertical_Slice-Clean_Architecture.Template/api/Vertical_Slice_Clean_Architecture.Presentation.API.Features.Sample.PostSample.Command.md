@@ -29,31 +29,47 @@ public sealed record PostSample.Command : IEquatable<PostSample.Command>
 
 ## Constructors
 
-### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command__ctor_Vertical_Slice_Clean_Architecture_Domain_Entities_SampleEntity_"></a> Command\(SampleEntity\)
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command__ctor_System_String_System_String_"></a> Command\(string, string\)
 
 The request body for this slice.
 
 ```csharp
-public Command(SampleEntity Sample)
+public Command(string Name, string Email)
 ```
 
 #### Parameters
 
-`Sample` SampleEntity
+`Name` [string](https://learn.microsoft.com/dotnet/api/system.string)
 
-The sample being submitted.
+The display name of the new sample.
+
+`Email` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The email address of the new sample. It must not belong to another sample.
 
 ## Properties
 
-### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_Sample"></a> Sample
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_Email"></a> Email
 
-The sample being submitted.
+The email address of the new sample. It must not belong to another sample.
 
 ```csharp
-public SampleEntity Sample { get; init; }
+public string Email { get; init; }
 ```
 
 #### Property Value
 
- SampleEntity
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_Name"></a> Name
+
+The display name of the new sample.
+
+```csharp
+public string Name { get; init; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 

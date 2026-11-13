@@ -3,7 +3,7 @@
 Namespace: [Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.md)  
 Assembly: Vertical\-Slice\_Clean\-Architecture.Presentation.API.dll  
 
-Runs the query against [SampleDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.SampleDbContext.md).
+Runs the query against [QueryDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.QueryDbContext.md).
 
 ```csharp
 public sealed class GetSample.Handler : ISliceHandler
@@ -29,25 +29,25 @@ public sealed class GetSample.Handler : ISliceHandler
 
 ## Constructors
 
-### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Handler__ctor_Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext_"></a> Handler\(SampleDbContext\)
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Handler__ctor_Vertical_Slice_Clean_Architecture_Infrastructure_Persistence_Contexts_QueryDbContext_"></a> Handler\(QueryDbContext\)
 
-Runs the query against [SampleDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.SampleDbContext.md).
+Runs the query against [QueryDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.QueryDbContext.md).
 
 ```csharp
-public Handler(SampleDbContext db)
+public Handler(QueryDbContext db)
 ```
 
 #### Parameters
 
-`db` SampleDbContext
+`db` [QueryDbContext](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.QueryDbContext.md)
 
-The database context to read from.
+The read-side database context.
 
 ## Methods
 
 ### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Handler_Handle_Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Query_System_Threading_CancellationToken_"></a> Handle\(Query, CancellationToken\)
 
-Looks up the sample with the requested identifier, without change tracking.
+Looks up the sample with the requested identifier, selecting only the columns the response needs.
 
 ```csharp
 public Task<Results<Ok<GetSample.Response>, NotFound>> Handle(GetSample.Query query, CancellationToken cancellationToken)

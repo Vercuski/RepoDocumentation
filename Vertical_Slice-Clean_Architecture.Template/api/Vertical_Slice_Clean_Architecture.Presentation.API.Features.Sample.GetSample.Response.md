@@ -29,31 +29,79 @@ public sealed record GetSample.Response : IEquatable<GetSample.Response>
 
 ## Constructors
 
-### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response__ctor_System_Collections_Generic_IList_Vertical_Slice_Clean_Architecture_Domain_Entities_SampleEntity__"></a> Response\(IList<SampleEntity\>\)
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response__ctor_System_Guid_System_String_System_String_System_Boolean_"></a> Response\(Guid, string, string, bool\)
 
 The response body returned when the sample is found.
 
 ```csharp
-public Response(IList<SampleEntity> Samples)
+public Response(Guid Id, string Name, string Email, bool IsActive)
 ```
 
 #### Parameters
 
-`Samples` [IList](https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist\-1)<SampleEntity\>
+`Id` [Guid](https://learn.microsoft.com/dotnet/api/system.guid)
 
-The matching samples. It contains exactly one item when returned by [GetSample.Handler](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.GetSample.Handler.md).
+The identifier of the sample.
+
+`Name` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The display name of the sample.
+
+`Email` [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+The email address of the sample.
+
+`IsActive` [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+Whether the sample is active.
 
 ## Properties
 
-### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response_Samples"></a> Samples
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response_Email"></a> Email
 
-The matching samples. It contains exactly one item when returned by [GetSample.Handler](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.GetSample.Handler.md).
+The email address of the sample.
 
 ```csharp
-public IList<SampleEntity> Samples { get; init; }
+public string Email { get; init; }
 ```
 
 #### Property Value
 
- [IList](https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist\-1)<SampleEntity\>
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
+
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response_Id"></a> Id
+
+The identifier of the sample.
+
+```csharp
+public Guid Id { get; init; }
+```
+
+#### Property Value
+
+ [Guid](https://learn.microsoft.com/dotnet/api/system.guid)
+
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response_IsActive"></a> IsActive
+
+Whether the sample is active.
+
+```csharp
+public bool IsActive { get; init; }
+```
+
+#### Property Value
+
+ [bool](https://learn.microsoft.com/dotnet/api/system.boolean)
+
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_GetSample_Response_Name"></a> Name
+
+The display name of the sample.
+
+```csharp
+public string Name { get; init; }
+```
+
+#### Property Value
+
+ [string](https://learn.microsoft.com/dotnet/api/system.string)
 

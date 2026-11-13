@@ -4,7 +4,7 @@
 
  [Entity](Vertical\_Slice\_Clean\_Architecture.Domain.Abstractions.Entity.md)
 
-Optional abstract base class for domain entities that are modelled as classes.
+Abstract base class for domain entities: every entity has a [Entity.Id](Vertical_Slice_Clean_Architecture.Domain.Abstractions.Entity.md#Vertical_Slice_Clean_Architecture_Domain_Abstractions_Entity_Id) that identifies it.
 
 ### Interfaces
 

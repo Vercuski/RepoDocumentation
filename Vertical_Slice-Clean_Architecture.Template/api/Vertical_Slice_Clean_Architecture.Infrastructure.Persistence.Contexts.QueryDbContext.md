@@ -1,19 +1,20 @@
-# <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext"></a> Class SampleDbContext
+# <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Persistence_Contexts_QueryDbContext"></a> Class QueryDbContext
 
-Namespace: [Vertical\_Slice\_Clean\_Architecture.Infrastructure.Contexts](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Contexts.md)  
+Namespace: [Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.md)  
 Assembly: Vertical\-Slice\_Clean\-Architecture.Infrastructure.dll  
 
-Entity Framework Core database context for the sample feature slices.
+EF Core context for the read side, connected through <code>ConnectionStrings:QueryDbConnection</code>.
 
 ```csharp
-public sealed class SampleDbContext : DbContext, IInfrastructure<IServiceProvider>, IDbContextDependencies, IDbSetCache, IDbContextPoolable, IResettableService, IDisposable, IAsyncDisposable
+public sealed class QueryDbContext : BaseDbContext<QueryDbContext>, IInfrastructure<IServiceProvider>, IDbContextDependencies, IDbSetCache, IDbContextPoolable, IResettableService, IDisposable, IAsyncDisposable
 ```
 
 #### Inheritance
 
 [object](https://learn.microsoft.com/dotnet/api/system.object) ← 
 [DbContext](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext) ← 
-[SampleDbContext](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Contexts.SampleDbContext.md)
+[BaseDbContext<QueryDbContext\>](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.BaseDbContext\-1.md) ← 
+[QueryDbContext](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.QueryDbContext.md)
 
 #### Implements
 
@@ -27,6 +28,7 @@ public sealed class SampleDbContext : DbContext, IInfrastructure<IServiceProvide
 
 #### Inherited Members
 
+[BaseDbContext<QueryDbContext\>.Samples](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.BaseDbContext\-1.md\#Vertical\_Slice\_Clean\_Architecture\_Infrastructure\_Persistence\_Contexts\_BaseDbContext\_1\_Samples), 
 [DbContext.Set<TEntity\>\(\)](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.set\#microsoft\-entityframeworkcore\-dbcontext\-set\-1), 
 [DbContext.Set<TEntity\>\(string\)](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.set\#microsoft\-entityframeworkcore\-dbcontext\-set\-1\(system\-string\)), 
 [DbContext.SaveChanges\(\)](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges\#microsoft\-entityframeworkcore\-dbcontext\-savechanges), 
@@ -78,57 +80,45 @@ public sealed class SampleDbContext : DbContext, IInfrastructure<IServiceProvide
 [object.ReferenceEquals\(object?, object?\)](https://learn.microsoft.com/dotnet/api/system.object.referenceequals), 
 [object.ToString\(\)](https://learn.microsoft.com/dotnet/api/system.object.tostring)
 
+## Remarks
+
+Queries default to [NoTracking](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.querytrackingbehavior.notracking), because entities read here are
+never saved back through this context. Use [CommandDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.CommandDbContext.md) to change data.
+
 ## Constructors
 
-### <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext__ctor_Microsoft_EntityFrameworkCore_DbContextOptions_Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext__"></a> SampleDbContext\(DbContextOptions<SampleDbContext\>\)
+### <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Persistence_Contexts_QueryDbContext__ctor_Microsoft_EntityFrameworkCore_DbContextOptions_Vertical_Slice_Clean_Architecture_Infrastructure_Persistence_Contexts_QueryDbContext__"></a> QueryDbContext\(DbContextOptions<QueryDbContext\>\)
 
-Entity Framework Core database context for the sample feature slices.
+EF Core context for the read side, connected through <code>ConnectionStrings:QueryDbConnection</code>.
 
 ```csharp
-public SampleDbContext(DbContextOptions<SampleDbContext> options)
+public QueryDbContext(DbContextOptions<QueryDbContext> options)
 ```
 
 #### Parameters
 
-`options` [DbContextOptions](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions\-1)<[SampleDbContext](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Contexts.SampleDbContext.md)\>
+`options` [DbContextOptions](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions\-1)<[QueryDbContext](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.QueryDbContext.md)\>
 
-The options for this context (provider, connection string and so on), normally supplied by
-dependency injection through <code>AddDbContext&lt;SampleDbContext&gt;</code>.
-
-## Properties
-
-### <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext_Samples"></a> Samples
-
-Gets the set of [SampleEntity](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md) records that can be queried and saved.
-
-```csharp
-public DbSet<SampleEntity> Samples { get; }
-```
-
-#### Property Value
-
- [DbSet](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset\-1)<[SampleEntity](Vertical\_Slice\_Clean\_Architecture.Domain.Entities.SampleEntity.md)\>
-
-## Methods
-
-### <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext_OnModelCreating_Microsoft_EntityFrameworkCore_ModelBuilder_"></a> OnModelCreating\(ModelBuilder\)
-
-Builds the EF Core model by applying every [IEntityTypeConfiguration](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.ientitytypeconfiguration-1)
-found in the scanned assembly.
-
-```csharp
-protected override void OnModelCreating(ModelBuilder modelBuilder)
-```
-
-#### Parameters
-
-`modelBuilder` [ModelBuilder](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.modelbuilder)
-
-The builder used to construct the model for this context.
+The options configured for the query database.
 
 #### Remarks
 
-The scanned assembly is <code>typeof(DbContext).Assembly</code>, which is the EF Core assembly, not
-this Infrastructure assembly. As written, [Vertical\_Slice\_Clean\_Architecture.Infrastructure.Contexts.SampleEntityConfiguration](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.md) is therefore
-not discovered and its mappings are not applied.
+Queries default to [NoTracking](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.querytrackingbehavior.notracking), because entities read here are
+never saved back through this context. Use [CommandDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.CommandDbContext.md) to change data.
+
+## Methods
+
+### <a id="Vertical_Slice_Clean_Architecture_Infrastructure_Persistence_Contexts_QueryDbContext_OnConfiguring_Microsoft_EntityFrameworkCore_DbContextOptionsBuilder_"></a> OnConfiguring\(DbContextOptionsBuilder\)
+
+Sets [NoTracking](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.querytrackingbehavior.notracking) as this context's default.
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+```
+
+#### Parameters
+
+`optionsBuilder` [DbContextOptionsBuilder](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontextoptionsbuilder)
+
+The builder used to configure the context.
 

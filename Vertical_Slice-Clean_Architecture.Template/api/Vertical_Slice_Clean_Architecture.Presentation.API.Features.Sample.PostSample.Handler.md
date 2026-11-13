@@ -3,7 +3,7 @@
 Namespace: [Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.md)  
 Assembly: Vertical\-Slice\_Clean\-Architecture.Presentation.API.dll  
 
-Processes a [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md) against [SampleDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.SampleDbContext.md).
+Adds the sample through [CommandDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.CommandDbContext.md).
 
 ```csharp
 public sealed class PostSample.Handler : ISliceHandler
@@ -29,35 +29,35 @@ public sealed class PostSample.Handler : ISliceHandler
 
 ## Constructors
 
-### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Handler__ctor_Vertical_Slice_Clean_Architecture_Infrastructure_Contexts_SampleDbContext_"></a> Handler\(SampleDbContext\)
+### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Handler__ctor_Vertical_Slice_Clean_Architecture_Infrastructure_Persistence_Contexts_CommandDbContext_"></a> Handler\(CommandDbContext\)
 
-Processes a [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md) against [SampleDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.SampleDbContext.md).
+Adds the sample through [CommandDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.CommandDbContext.md).
 
 ```csharp
-public Handler(SampleDbContext db)
+public Handler(CommandDbContext db)
 ```
 
 #### Parameters
 
-`db` SampleDbContext
+`db` [CommandDbContext](Vertical\_Slice\_Clean\_Architecture.Infrastructure.Persistence.Contexts.CommandDbContext.md)
 
-The database context to read from and save to.
+The write-side database context.
 
 ## Methods
 
 ### <a id="Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Handler_Handle_Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_System_Threading_CancellationToken_"></a> Handle\(Command, CancellationToken\)
 
-Checks that an active sample with the submitted identifier exists, then saves pending changes.
+Creates the sample unless its email address is already in use.
 
 ```csharp
-public Task<Results<Created<PostSample.Response>, NotFound<ProblemDetails>, Conflict<ProblemDetails>>> Handle(PostSample.Command command, CancellationToken cancellationToken)
+public Task<Results<Created<PostSample.Response>, Conflict<ProblemDetails>>> Handle(PostSample.Command command, CancellationToken cancellationToken)
 ```
 
 #### Parameters
 
 `command` [PostSample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.md).[Command](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.Command.md)
 
-The command that holds the submitted sample.
+The command that holds the new sample's details.
 
 `cancellationToken` [CancellationToken](https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken)
 
@@ -65,12 +65,13 @@ A token that cancels the database calls.
 
 #### Returns
 
- [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[Results](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.results\-3)<[Created](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.created\-1)<[PostSample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.md).[Response](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.Response.md)\>, [NotFound](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.notfound\-1)<[ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails)\>, [Conflict](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.conflict\-1)<[ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails)\>\>\>
+ [Task](https://learn.microsoft.com/dotnet/api/system.threading.tasks.task\-1)<[Results](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.results\-2)<[Created](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.created\-1)<[PostSample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.md).[Response](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.Response.md)\>, [Conflict](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpresults.conflict\-1)<[ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails)\>\>\>
 
-<ul><li><code>404 Not Found</code> with a problem body if no active sample with that identifier exists.</li><li><code>409 Conflict</code> with a problem body if the save fails with a [DbUpdateConcurrencyException](https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception).</li><li>Otherwise <code>201 Created</code> with a <code>Location</code> of <code>/Sample/{Id}</code> and a [PostSample.Response](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Response.md) body.</li></ul>
+<code>201 Created</code> with a <code>Location</code> of <code>/Sample/{Id}</code>, or <code>409 Conflict</code>
+with a problem body if another sample already has the email address.
 
 #### Remarks
 
-The handler does not add [PostSample.Command.Sample](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md#Vertical_Slice_Clean_Architecture_Presentation_API_Features_Sample_PostSample_Command_Sample) to the context, so <code>SaveChangesAsync</code>
-currently has nothing to save.
+Two requests racing with the same email can both pass the check; the unique index on
+<code>Email</code> then rejects the second save.
 

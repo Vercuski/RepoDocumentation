@@ -16,20 +16,19 @@ Registers the <code>GET /Sample/{Id:guid}</code> route for this slice.
 
  [GetSample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.GetSample.md)
 
-Vertical slice for <code>GET /Sample/{Id}</code>: returns a single [SampleEntity](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md) by its identifier.
+Vertical slice for <code>GET /Sample/{Id}</code>: returns a single sample by its identifier.
 
  [PostSample.Handler](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.Handler.md)
 
-Processes a [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md) against [SampleDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.SampleDbContext.md).
+Adds the sample through [CommandDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.CommandDbContext.md).
 
  [GetSample.Handler](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.GetSample.Handler.md)
 
-Runs the query against [SampleDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Contexts.SampleDbContext.md).
+Runs the query against [QueryDbContext](Vertical_Slice_Clean_Architecture.Infrastructure.Persistence.Contexts.QueryDbContext.md).
 
  [PostSample](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.md)
 
-Vertical slice for <code>POST /Sample</code>: accepts a [SampleEntity](Vertical_Slice_Clean_Architecture.Domain.Entities.SampleEntity.md) and returns <code>201 Created</code>
-when an active sample with the same identifier already exists.
+Vertical slice for <code>POST /Sample</code>: creates a sample.
 
  [GetSample.Query](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.GetSample.Query.md)
 
@@ -45,5 +44,6 @@ The response body returned on success.
 
  [PostSample.Validator](Vertical\_Slice\_Clean\_Architecture.Presentation.API.Features.Sample.PostSample.Validator.md)
 
-FluentValidation rules for [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md), applied by <code>WithValidation&lt;Command&gt;()</code> before the handler runs.
+FluentValidation rules for [PostSample.Command](Vertical_Slice_Clean_Architecture.Presentation.API.Features.Sample.PostSample.Command.md), applied by <code>WithValidation&lt;Command&gt;()</code>
+before the handler runs. The length limits are the entity's, so they match the database mapping.
 
